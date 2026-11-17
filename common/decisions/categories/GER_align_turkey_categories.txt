@@ -1,0 +1,18 @@
+GER_align_turkey = {
+	icon = generic_fascism
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Battle for the Bosporus"
+	}
+
+	visible = {
+		OR = {
+			TUR = { has_government = ROOT }
+			AND = {
+				TUR = { has_government = neutrality }
+				ROOT = { has_government = fascism }
+			}
+		}
+	}
+}

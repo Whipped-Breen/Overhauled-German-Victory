@@ -1,0 +1,341 @@
+#1
+
+Added 'occupation of Denmark' event.
+
+Added 'Transfer ownership of �land' decision, enables Reichskommissariat Schweden to take control of said island.
+
+Reworked 'Reichskommissariat D�nemark', now enables the creation said puppet once Occupied Denmark has over fifty percent support for fascism, Occupied Denmark will be annexed by the new state.
+
+Burgundy now releases as a Reichsprotectorate.
+
+#2
+
+Added focus and decisions to puppet the minor Axis powers.
+
+Added focus to divide and puppet Italy, establishing the Italian Social Republic.
+
+Added 'Reichskommissariat Hochitalien' in northern Italy.
+
+Added western Reichskommissariat focus branch.
+
+Corrected Ukrainian/Caucasian border, Rostov is no longer a core of both puppets (just Ukraine).
+
+English names have now been given to Moscow and the Caucasus.
+
+Corrected name of Reichskommissariat of Belgium and Northern France, was 'Reichskommissariat Belgien' now 'Reichskommissariat Belgien-Nordfrankreich'
+
+#3
+
+Luga, Pskov and Nevel to the eastern boarder of Reichskommissariat Ostland.
+
+Reworked German-Turkish diplomacy so that both options are no longer mutually exclusive.
+
+Added focuses to puppet Iraq and befriended Iran.
+
+Added a custom trigger tooltip too the 'GER_reichskommissariat_construction' focuses.
+
+Added event to move the capital of Vichy France to Paris when it gains control over it.
+
+Vichy France will change its name to 'the Franch State', including a new colour.
+
+Improved the [From.GetAdjective] Subservience feature so it will include all axis member-states at one time, the cost has also been reduced to 100 PP and the manpower to 1 million.
+
+Ordensstaat Burgund:
+
+    Now has the Reichskommissariat focus tree.
+
+    Now has original flag.
+
+    Now has cores in south eastern France.
+
+    Builds extra factories in its states upon creation.
+
+#4
+
+Fixed problem where only the reichskommissariat capital state would be transferred.
+
+Expanded focus trees for both western and eastern Reichskommissariats.
+
+Added focus branch for Ordensstaat Burgund.
+
+Added unique flags for the Reichskommissariats.
+
+#5
+
+Tuscany is no longer part of Reichskommissariat Hochitalien.
+
+Dominion of Quebec has been removed.
+
+Minor adjustment to how Reichskommissariats are released (Used to be transfer_state, is now release_autonomy).
+
+Added BUR_german_settlers to Ordensstaat Burgund.
+
+Replaced reichskommissariat_partake_in_lebensraum with reichskommissariat_german_war_factories.
+
+The option to release Scotland is now separate event (OGV_britain.4).
+
+Axis Britain now owns a limited number of colonies, mostly coreless island states but also west Africa.
+
+reichskommissariat_german_research focus to western reichskommissariats, adds one research slot.
+
+Added new German puppet state: Mittelafrika (is Tanzania with more cores).
+
+Is ruled by Franz Ritter von Epp (has original portrait).
+
+Has national spirit 'MAF_reichskolonialbund'.
+
+Germany Has events that give Angola and Mozambique to it, and to attack Portugal if they do not agree.
+
+Can be created by ether Fascist or Monarchist Germany.
+
+Full Axis Control feature now only works with a few select countries (Hungary, Romania, Finland, Bulgaria and Spain), the autonomy is now set to Satellite, cost 100PP to do decision.
+
+#6
+
+Fixed error in which the decisions to realise Ordensstaat Burgund and Brittany dose not disappear after said countries are realised.
+
+Added new focus tree sub-branch expanding the Berlin-Moscow Axis, adding economic, military, research and territorial expansion.
+
+Reworked the military branch of the Reichskommissariat foucs.
+
+Equatorial Africa(660) is now part of Mittelafrika.
+
+Ordensstaat Burgund's focus tree has received a minor rework.
+
+Reichskommissariats will take all of their cores states upon the holders capitulation.
+
+Upon German capitulation all reichskommissariats will be annexed by their respective rival nations.
+
+Dynamic modifiers will now be added by reichskommissariat focus; they replace the reichskommissariat state flags.
+
+Added reichskommissariat_local_production focus.
+
+Added reichskommissariat_panzer_factories, reichskommissariat_local_wehrmacht and BUR_guns_and_equipment to eastern reichskommissariats, western reichskommissariats and Ordensstaat Burgund respectively.
+
+Positions of reichskommissariat_artillery_effort, reichskommissariat_armor_effort and reichskommissariat_local_defence have been rearranged.
+
+Fixed and expanded the Soviet occupation of Turkey.
+
+#7 
+
+Fixed and improved British evacuation to Canada, Axis puppet state is now created before the government evacuates and the post-evacuation scenario has been split into three: Britain annexes Canada, Canada becomes a Collaboration government/Integrated Puppet and Britain becomes Canada.
+
+The event "Fate of the Empire"/"Triumph in Britain" now triggers at greater than 0.42 surrender progress, all three events in the chain now fire instantaneously.
+
+The way in which unit leaders are divided between British collaborators and resistance has been now works on unit ids and traits (old_guard and old_guard_navy).
+
+News event "Collapse of the Soviet Union" now has a custom picture.
+
+Added custom portraits for all reichskommissariats (except Kaukasus), courtesy of u/batsy0boi and some (Karl Wolff, Werner Best and Wilhelm Rediess) I made myself.
+
+New portrait for Eoin O'Duffy, courtesy of u/Raynes98.
+
+New portrait for Franz Ritter von Epp.
+
+Brittany can now only be released after 1943.6.1
+
+Two new reichskommissariats have been added, Reichskommissariat Turkestan and Reichskommissariat Don Wolga (Optional).
+
+Added "Naval Aviation Effort" to the Reichskommissariat focus tree.
+
+Ordensstaat Burgund and Mittelafrika now have their own original tags (BUR and MAF).
+
+Former soviet countries now gain national spirit "Refugee Influx" when any eastern reichskommissariat completes the focus "Mass Deportation"
+
+If the Allies capture Sicily(115) a civil war will start, original country Non-Aligned(Victor Emmanuel III) vs Fascist(Benito Mussolini), apon the war's start all non-core state Controlled by Italy in Europe will transfer to germany. This is based on the historical Italian Civil War.
+
+Reichskommissariats now release with War economy set.
+
+Upon Yugoslavia capitulating to Germany or allies an event will fire: "Occupation of Yugoslavia", this rearranges the occupation to be historical.
+
+Reichskommissariats now inherit technology from Germany, sets research slots to 3, except RKM (4).
+
+Nevel(210), Pskov(209) and Luga(208) are now part of Reichskommissariat Ostland.
+
+Mozyr(194) is now part of Reichskommissariat Ukraine.
+
+Vinnytsia(198) and Odessa(192) will go to Romania if upon Reichskommissariat Ukraine's creation if it is in the same faction as Germany.
+
+Event "Ultimatum to the Danish government" will trigger after 1943.8.28, Denmark will be put under military occupation.
+
+If Britain is in the Axis and controls Central Asia when the Soviet Union collapses; the Central Asian countries and West Siberia will not be released.
+
+An event to release Wales as a satellite has been added.
+
+The events to release Scotland and Wales are now triggered when Germany or pro Axis Britain control their core states.
+
+Reichskommissariat Hochitalien is now ruled by Karl Wolff.
+
+Added focus to puppet Iran.
+
+Added focus "Afro-Deutsch Railway Network", adds infrastructure to Mittelafrika.
+
+Reworked state control requirements for eastern reichskommissariats.
+
+Decision "Transfer ownership of �land" now cost 25PP, was 100.
+
+#8
+
+The event that causes the Soviet Union to collapse has been completely overhauled, it can now be triggered by any country and the nations released will only release if any of there core states are not controlled by the Soviet Union upon its collapse, this dose not include states in the European regions, (407, 406, 402, 587). Manchukuo and Mengkukuo will only take Soviet states if they exist and have not capitulated (cores will not be affected), Mengkukuo only if they are a subject of any country. The event will trigger when the Soviet Union is at 69% towards capitulation and no longer controls Moscow.
+
+Reichskommissariats sets research slots to 2, except RKM (3).
+
+Focus �German Industry III� has been added to the Reichskommissariat industrial branch.
+
+Focus �German Industrial Research� has been added to the Reichskommissariat ost branch.
+
+Serbia(Government of National Salvation) can now be released as a reichskommissariat by a decision after the "Occupation of Yugoslavia" event has fired. Government of National Salvation�s leader, Milan Nedi?, has had a unique portrait added.
+
+Reichskommissariat Turkestan�s capital has been moved to Kazan(249), and is Adjective to 'Turkestani'.
+
+State Luga(208) is no longer part of Reichskommissariat Ostland.
+
+Focus to puppet Iran now has a unique icon.
+
+Reichskommissariats Ukraine and Moscow have had their 'owned state' moved to Wo?y?(93) and Roslavl(243) respectively, this is prevent lowering of the Soviet Union's surrender limit, by only transferring low-victory-point-states.
+
+The decision 'Proclaim Greater German Reich' now renames several Eastern European cities and states with historical German names. The states that were not part of the German Empire will receive a modifier; "Foreign Majority State".
+
+Added new option to the "Fate of Italy" event, "Establish the Italian Social Republic, seize Germanic Italy!", transfers and cores north-east Italian states.
+
+Several errors fixed in the Reichskommissariat focus tree.
+
+Reichskommissariat focus tree military branch has been overhauled, now prioritises the Reichskommissariats relining on licence production instead of their own research.
+
+Reichskommissariat Belgien-Nordfrankreich�s adjective has been changed to "Franco-Belgian".
+
+All Reichskommissariats, except RKM, now have German unit models. Serbia has Yugoslavian.
+
+#9
+
+Added 'Reichsland Skandinavien', combines all three Scandinavian Reichskommissariats (Norway, Sweden, Denmark) into one formable nation.
+
+Reworked code for the state transfer, release and puppeting in Reichskommissariat decisions.
+
+Burgundy's country tag has been changed to 'OSB'.
+
+Reichskommissariat Don-Wolga is now based on Volga Germany, as it is a more appropriate.
+
+Reichsprotektorat Turkestan now has the new states Mari El and Izhevsk has cores.
+
+Italy must now control Latium(2) for the civil war to start.
+
+The collapse the USSR has been commonly overhauled, instead of my modded countries (which are now unused), the newly added Siberian countries are now realised upon Soviet collapse. 'Red Siberia' has now been added, existing as a Soviet rump state in the regions not owned by the base-game releasable nations, it spawns with it's own order of battle.
+
+Focus "Gro�e Afrikanische Eisenbahn" now creats a railway network across Mittelafrika as well as adding infrastructure, it no longer adds a national spirit.
+
+#10
+
+Reichsprotektorat Turkestan now has Chuvashia(256) as a core state
+
+Reichsprotektorat Ukraine now has Saratov(239), Engels-Marxstadt(829) and Balakovo(401) as a core states
+
+Soviet Collapse now realises Komi and Nenets as its puppet
+
+Magnitogorsk(582) and Orenburg(652) now go to Reichskommissariat Moskau if it is realised first, cores are shaired
+
+Several focus icons in the German focus tree have been replaced with newer, more fiting images
+
+Fixed bug where Himmler wouldn't be leader of Burgundy is fixed
+
+Fixed bug where Karl Wolff wouldn't be leader of Reichskommissariat Hochitalien is fixed, focus also loads now
+
+Soviet fracture states now realise in a manner based of how it works in the Soviet civil war, states are transferred to new country and new divisions spawn
+
+Far Eastern Republic is now Imperial Protectorate
+
+Fixed bug where form_greater_german_reich decision is from base game
+
+"[FROM.GetAdjective] Subservience" decisions have been reworked
+
+Added decisions "Generalgouvernement" and "Protectorate of Bohemia and Moravia", they add modifiers to select states based on the historical borders of said protectorates
+
+Added focus to eastern reichskommissariats; "Encourage German Settlers"
+
+Germany can now recruit SS in neutral Occupied Denmark
+
+Reza Shah Pahlavi will now lead fascist Iran after Germany takes the "Direct Control" decision
+
+Britain will no longer annex Canada, Canada will still be faction leader, Winston Churchill will become leader of Canada, Britain will still get ENG_imperial_conscription_idea, will also get 50+ legitimacy
+
+A decision has been added for the British government to evacuate to Canada, instead of an event
+
+Edward VIII will become a field marshal in occupied Britain
+
+Romania now gets a core on Balta-Tiraspol(834)
+
+#11
+
+Decision "Independent Brittany" no longer has date requirement
+
+Reichskommissariats’ release/creation script has been reworked
+
+Upon Germany’s capitulation all Reichskommissariats will ether lose there cosmetic tags and extra cores (if they are NOT dynamic counties), or be annexed by there respective original country (if they are dynamic counties)
+
+"Proclaim Greater German Reich" no longer gives Germany ownership of Polish states
+
+Hungary and Bulgaria now have to be at war with Yugoslavia to gain control of its states in the "Occupation of Yugoslavia" event
+
+"Demand Portuguese colonies" script has been reworked, and Sao Tome(705) is now
+involved
+
+Nigeria(558), Dahomey(776) and Chad(774) are no longer part of Mittelafrika
+
+"Große Afrikanische Eisenbahn" railways have been reworked
+
+The Soviet Union will now collapse when its surrender progress is greater than 65% and Leningrad(195), Moscow(219) and Stalingrad(217) are occupied
+
+‘Debug’ decisions added mod testing
+
+"Protectorate of Bohemia and Moravia" and "Generalgouvernement" have had modifiers altered
+
+‘reichskommissariat_german_dockyards_3’ has been named
+
+"German Dockyards II" now gives Germany offmap shipyards proportional to the
+reichskommissariat’s coastal states (1 per coastal state)
+
+#12
+
+Updated the relevant features to accommodate the changes of patch 1.12. (may have missed some)
+
+Integrated the mod’s Italian Civil War and the By Blood Alone Italian Civil War, Italy will be know as "Republica Sociale Italiana" taken over by Germany, "Africa Orientale Italiana" will remain it’s puppet.
+
+Mittelafrika’s idea has been renamed to "The NSDAP Office of Colonial Policy", now gives -10% consumer goods
+
+Kosovo now transfers to Albania if Albania is a subject of Italy upon Yugoslavia's capitulation
+
+Reichskommissariat Hochitalien now has an original tag created for it – RKI, is referred as ‘High Italy’ in the files
+
+Heinrich Himmler (OSB) now has adviser role with traits; Fascist Demagogue, Propaganda Expert, Prince Of Terror
+
+‘Walter Schellenberg’ has been added to the Order State of Burgundy as "Illusive Gentleman"
+
+Franz Ritter von Epp now has despotism for Non-Aligned
+
+"Operation Ikarus" decision has been added, Germany declarers war on Iceland
+
+Error where British AI wouldn't take the decision to evacuate to Canada
+
+The British German puppet state now completes several focuses upon forming
+
+Minor improvements to the ‘Collapse of the USSR’ system
+
+#13
+
+Fixed error where ‘Collapse of the USSR’ event fired in a civil war
+
+"Grigory Semyonov" is now leader of Democratic, Fascist and Non-Aligned East Siberian Army
+
+East Siberian Army divisions (except for the one at the capital state) are now owned by Japan
+
+20% of the Soviet Navy is now transferred to the East Siberian Army on Soviet collapse
+
+4 random Soviet admirals are transferred to the East Siberian Army on Soviet collapse
+
+Fixed error where Mengkukuo annexes Mongolia and Tannu Tuva when Mengkukuo itself has been annexed by Manchukuo, Manchukuo now annexes Mongolia and Tannu Tuva
+
+Roughly 5% of the Soviet Army now goes to Kazakhstan, gains level 1 airport (it has non by default)
+
+East Siberian Army no longer has elections if Japan has non
+
+If now Manchukuo annexes Mengkukuo after it has annexed Mongolia and Tannu Tuva, it will gain cores on Mongolia and Tannu Tuva

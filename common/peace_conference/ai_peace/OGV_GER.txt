@@ -1,0 +1,66 @@
+# Scripted AI desire for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+peace_ai_desires = {
+
+    GER_annex_SOV = {
+        peace_action_type = take_states
+        enable = {
+            ROOT = { tag = GER }  # Negotiatior
+            FROM = { tag = ROOT }  # And the negotiator is also taking for themselves
+            FROM.FROM.FROM = {
+				is_owned_by = SOV
+				
+				NOT = { is_core_of = ROM }
+				NOT = { is_claimed_by = ROM }
+				
+				NOT = { is_core_of = RKO }
+				NOT = { is_core_of = RKU }
+				NOT = { is_core_of = RKM }
+				NOT = { is_core_of = RKK }
+				NOT = { is_core_of = RKT }
+				NOT = { is_core_of = RKV }
+			}
+        }
+        ai_desire = 1000
+    }
+	RKO_be_given_cores = {
+        peace_action_type = { take_states }
+        enable = {
+			ROOT = { tag = GER }
+            FROM = { tag = RKO }
+            FROM.FROM.FROM = { is_core_of = FROM } #It is ours
+        }
+        ai_desire = 1000
+    }
+	RKO_be_given_cores_part_two = {
+        peace_action_type = { take_states }
+        enable = {
+			ROOT = { tag = GER }
+            FROM = { tag = ROOT }
+            FROM.FROM.FROM = { is_core_of = POL is_core_of = RKO }
+        }
+        ai_desire = -500
+    }
+	RKU_be_given_cores = {
+        peace_action_type = { take_states }
+        enable = {
+			ROOT = { tag = GER }
+            FROM = { tag = RKU }
+            FROM.FROM.FROM = { is_core_of = FROM NOT = { is_core_of = ROM } NOT = { is_claimed_by = ROM } NOT = { is_core_of = RKV } } #It is ours
+        }
+        ai_desire = 1000
+    }
+	
+	GER_annex_SOV_part_two = {
+        peace_action_type = { force_government puppet }
+        enable = {
+            ROOT = { tag = GER }  # Negotiatior
+            FROM = { tag = ROOT }  # And the negotiator is also taking for themselves
+            FROM.FROM = {
+				tag = SOV
+			}
+        }
+        ai_desire = -1000
+    }
+}

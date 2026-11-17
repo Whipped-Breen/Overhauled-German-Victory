@@ -1,0 +1,4 @@
+RSB = "countries/Red Siberia.txt"
+OSB = "countries/Burgundy.txt"
+MAF = "countries/Mittelafrika.txt"
+RKI = "countries/High Italy.txt"

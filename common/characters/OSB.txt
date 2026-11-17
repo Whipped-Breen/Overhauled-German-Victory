@@ -1,0 +1,451 @@
+characters={
+	OSB_heinrich_himmler={
+		name="Heinrich Himmler"
+		portraits={
+			army={
+				small="GFX_idea_heinrich_himmler"
+				large=GFX_portrait_GER_heinrich_himmler
+			}
+			civilian = {
+				large=GFX_portrait_GER_heinrich_himmler
+			}
+		}
+		field_marshal={
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id=-1
+		}
+		country_leader={
+			desc="POLITICS_HEINRICH_HIMMLER_DESC"
+			ideology=nazism
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = heinrich_himmler
+			allowed = {
+				original_tag = OSB
+			}
+			available = {
+				has_government = fascism 
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
+			}
+			traits = {
+				fascist_demagogue propaganda_expert prince_of_terror
+			}
+			do_effect = {
+				NOT = {
+					has_government = fascism 
+				}
+			}
+			ai_will_do = {
+				factor = 24.000
+			}
+		}
+	}
+	OSB_walter_schellenberg={
+		name="Walter Schellenberg"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_GER_generic_land_5.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = walter_schellenberg
+			allowed = {
+				original_tag = OSB
+			}
+			available = {
+				has_government = fascism 
+			}
+			traits = {
+				head_of_intelligence 
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	OSB_ar={
+		advisor={
+			slot = high_command
+			idea_token = OSB_ar
+			ledger  = army 
+				allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					army_regrouping_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	OSB_acr={
+		advisor={
+			slot = air_chief
+			idea_token = OSB_acr
+			allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					air_chief_reform_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	OSB_mt={
+		advisor={
+			slot = theorist
+			idea_token = OSB_mt
+			ledger  = army 
+				allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					military_theorist 
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	OSB_stc={
+		advisor={
+			slot = political_advisor
+			idea_token = OSB_stc
+			allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					smooth_talking_charmer 
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_3"
+			}
+		}
+	}
+	OSB_aa2={
+		advisor={
+			slot = high_command
+			idea_token = OSB_aa2
+			ledger  = army 
+				allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					army_armored_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	OSB_acgs={
+		advisor={
+			slot = air_chief
+			idea_token = OSB_acgs
+			allowed  = {
+					original_tag  = OSB
+				}
+				traits  = {
+					air_chief_ground_support_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	OSB_ncm={
+		advisor={
+			slot = navy_chief
+			idea_token = OSB_ncm
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				navy_chief_maneuver_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_3"
+			}
+		}
+	}
+	OSB_nccr={
+		advisor={
+			slot = navy_chief
+			idea_token = OSB_nccr
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				navy_chief_commerce_raiding_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_2"
+			}
+		}
+	}
+	OSB_coi={
+		advisor={
+			slot = political_advisor
+			idea_token = OSB_coi
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				captain_of_industry 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_1"
+			}
+		}
+	}
+	OSB_democratic_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = OSB_democratic_guy
+			allowed  = {
+				original_tag  = OSB
+			}
+			available = {
+				has_government = democratic 
+			}
+			traits  = {
+				democratic_reformer 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = democratic 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_1"
+			}
+		}
+	}
+	OSB_acd2={
+		advisor={
+			slot = army_chief
+			idea_token = OSB_acd2
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				army_chief_defensive_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	OSB_acas={
+		advisor={
+			slot = high_command
+			idea_token = OSB_acas
+			ledger  = air 
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				air_close_air_support_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	OSB_communist_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = OSB_communist_guy
+			allowed  = {
+				original_tag  = OSB
+			}
+			available = {
+				has_government = communism 
+			}
+			traits  = {
+				communist_revolutionary 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_3"
+			}
+		}
+	}
+	OSB_ncs={
+		advisor={
+			slot = high_command
+			idea_token = OSB_ncs
+			ledger  = navy 
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				navy_capital_ship_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_2"
+			}
+		}
+	}
+	OSB_awt={
+		advisor={
+			slot = theorist
+			idea_token = OSB_awt
+			ledger  = air 
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				air_warfare_theorist 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	OSB_ai2={
+		advisor={
+			slot = high_command
+			idea_token = OSB_ai2
+			ledger  = army 
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				army_infantry_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	OSB_nt={
+		advisor={
+			slot = theorist
+			idea_token = OSB_nt
+			ledger  = navy 
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				naval_theorist 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_3"
+			}
+		}
+	}
+	OSB_aco2={
+		advisor={
+			slot = army_chief
+			idea_token = OSB_aco2
+			allowed  = {
+				original_tag  = OSB
+			}
+			traits  = {
+				army_chief_organizational_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+}

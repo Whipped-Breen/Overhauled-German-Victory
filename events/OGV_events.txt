@@ -1,0 +1,838 @@
+add_namespace = OGV_soviet
+add_namespace = OGV_britain
+add_namespace = OGV_france
+
+# USSR
+	
+country_event = {
+	id = OGV_soviet.1
+	title = OGV_soviet.1.t
+	desc = OGV_soviet.1.desc
+	picture = GFX_report_event_soviet_soldiers
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		has_war = yes
+		has_civil_war = no
+		surrender_progress > 0.8
+		NOT = { controls_state = 219 }
+		controls_state = 570
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = collapse_of_ussr
+			news_event = { days = 1 id = OGV_news.1 }
+
+			SOV = {
+				SOV_georgy_zhukov = { set_nationality = RSB }
+				every_army_leader = {
+					limit = { has_trait = trait_SOV_cowed_by_stalin_army }
+					remove_unit_leader_trait =  trait_SOV_cowed_by_stalin_army
+				}
+				every_navy_leader = {
+					limit = { has_trait = trait_SOV_cowed_by_stalin_navy }
+					remove_unit_leader_trait =  trait_SOV_cowed_by_stalin_navy
+				}
+				RSB = {
+					add_state_core = 653
+					add_state_core = 403
+					add_state_core = 572
+					add_state_core = 571
+					add_state_core = 578
+					add_state_core = 570
+					add_state_core = 569
+					add_state_core = 568
+					add_state_core = 575
+					add_state_core = 567
+					add_state_core = 565
+					add_state_core = 576
+					add_state_core = 566
+					inherit_technology = SOV
+					if = {
+						limit = { has_character = SOV_georgy_zhukov }
+						add_country_leader_role = {
+							character = "SOV_georgy_zhukov"
+							country_leader = {
+								ideology=anti_revisionism
+								expire="1965.1.1"
+							}
+							promote_leader = yes
+						}
+					}
+				}
+				RSB = { siberian_nationalist_independence = yes }
+				KAZ = { siberian_nationalist_independence = yes }
+				KHI = { siberian_nationalist_independence = yes }
+				TAJ = { siberian_nationalist_independence = yes }
+				KYR = { siberian_nationalist_independence = yes }
+				TMS = { siberian_nationalist_independence = yes }
+				KKP = { siberian_nationalist_independence = yes }
+				BUK = { siberian_nationalist_independence = yes }
+				UZB = { siberian_nationalist_independence = yes }
+				ALT = { siberian_nationalist_independence = yes }
+				OVO = { siberian_nationalist_independence = yes }
+				YAM = { siberian_nationalist_independence = yes }
+				TAY = { siberian_nationalist_independence = yes }
+				YAK = { siberian_nationalist_independence = yes }
+				BYA = { siberian_nationalist_independence = yes }
+				FER = { siberian_nationalist_independence = yes }
+				transfer_units_fraction= {
+					target = RSB
+					target_organization = 1
+					source_organization = 0.9
+					size = 0.75
+					stockpile_ratio = 0.4
+					army_ratio = 0.4
+					navy_ratio = 0.0
+					air_ratio = 0.6
+				}
+				transfer_units_fraction= { target = FER size = 0.0 navy_ratio = 0.2 }
+			}
+			MAN = {
+				add_state_core = 408
+				add_state_core = 409
+				add_state_core = 657
+				if = {
+					limit = { exists = yes has_capitulated = no }
+					408 = { set_state_name = "Haishenwai" }
+					set_province_name = { id = 957 name = "Haishenwai"}
+					transfer_state = 408
+					transfer_state = 409
+					transfer_state = 657
+				}
+			}
+			if = {
+				limit = { MEN = { exists = yes has_capitulated = no } }
+				every_state = {
+					limit = { OR = { is_core_of = MON state = 329 } }
+					MEN = { add_state_core = PREV transfer_state = PREV }
+				}
+				MEN = { set_capital = { state = 330 } diplomatic_relation = { country = BYA relation = military_access } }
+			}
+			else_if = {
+				limit = { MAN = { owns_state = 611 owns_state = 612 has_capitulated = no } }
+				every_state = {
+					limit = { OR = { is_core_of = MON state = 329 } }
+					MAN = { add_state_core = PREV transfer_state = PREV }
+				}
+				MAN = { diplomatic_relation = { country = BYA relation = military_access } }
+			}
+			else = {
+				every_state = { limit = { OR = { is_core_of = MON state = 329 } } add_core_of = MEN }
+			}
+			SOV = {
+				every_character = { limit = { has_character_flag = SOV_exiled_flag is_navy_leader = yes } clr_character_flag = SOV_exiled_flag }
+				for_loop_effect = { end = 4 random_character = { limit = { is_navy_leader = yes } set_nationality = FER } }
+			}
+			JAP = {
+				if = {
+					limit = { is_subject = no }
+					diplomatic_relation = { country = BYA relation = military_access }
+					puppet = FER
+					FER = {
+						set_politics = { ruling_party = ROOT }
+						add_equipment_to_stockpile = { type = convoy_1 amount = 10 }
+						MAN = { SOV_grigory_semyonov = { set_nationality = FER } }
+						if = {
+							limit = { has_character = SOV_grigory_semyonov }
+							add_country_leader_role = {
+								character = "SOV_grigory_semyonov"
+								country_leader = { ideology=conservatism expire="1965.1.1" }
+								promote_leader = yes
+							}
+							add_country_leader_role = {
+								character = "SOV_grigory_semyonov"
+								country_leader = { ideology=fascism_ideology expire="1965.1.1" }
+								promote_leader = yes
+							}
+							add_country_leader_role = {
+								character = "SOV_grigory_semyonov"
+								country_leader = { ideology=despotism expire="1965.1.1" }
+								promote_leader = yes
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { FIN = { exists = yes NOT = { has_war_with = SOV } } SOV = { owns_state = 146 } }
+				FIN = { transfer_state = 146 }
+			}
+		}
+	}
+
+	option = {
+		name = OGV_soviet.1.a
+	}
+}
+# UK
+
+country_event = {
+	id = OGV_britain.1
+	title = OGV_britain.1.t
+	desc = OGV_britain.1.desc
+	picture = GFX_report_event_ANZAC_day
+
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = OGV_britain_1_flag }
+
+	option = {
+		name = OGV_britain.1.a
+		ai_chance = { base = 1 }
+		if = {
+			limit = { NOT = { CAN = { has_war_with = GER } } }
+			CAN = { add_to_war = { targeted_alliance = ENG enemy = GER hostility_reason = asked_to_join } }
+		}
+		hidden_effect = { ENG = { end_puppet = CAN } }
+		if = {
+			limit = { ENG = { is_faction_leader = yes } }
+			CAN = { set_faction_leader = yes }
+		}
+		news_event = { hours = 6 id = OGV_news.2 }
+	}
+	option = {
+		name = OGV_britain.1.b
+		ai_chance = { base = 0 }
+		if = {
+			limit = { NOT = { CAN = { has_war_with = GER } } }
+			CAN = { add_to_war = { targeted_alliance = ENG enemy = GER hostility_reason = asked_to_join } }
+		}
+		hidden_effect = { ENG = { end_puppet = CAN } }
+		if = {
+			limit = { ENG = { is_faction_leader = yes } }
+			CAN = { set_faction_leader = yes }
+		}
+		news_event = { hours = 6 id = OGV_news.2 }
+		set_country_flag = ENG_collaborator_flag
+		custom_effect_tooltip = collaborator_tooltip
+	}
+	option = {
+		name = OGV_britain.1.c
+		ai_chance = { base = 1 }
+		ENG = {
+			set_autonomy = { target = CAN autonomy_state = autonomy_free }
+			set_autonomy = { target = AST autonomy_state = autonomy_free }
+			set_autonomy = { target = NZL autonomy_state = autonomy_free }
+			set_autonomy = { target = SAF autonomy_state = autonomy_free }
+			set_autonomy = { target = RAJ autonomy_state = autonomy_free }
+		}
+		CAN = {
+			create_faction = "ENG_commonwealth_of_nations"
+			add_to_faction = SAF
+			add_to_faction = AST
+			add_to_faction = NZL
+			add_to_faction = RAJ
+		}
+		GER = {
+			white_peace = CAN
+			white_peace = AST
+			white_peace = NZL
+			white_peace = SAF
+			white_peace = RAJ
+		}
+		hidden_effect = {
+			every_controlled_state = {
+				limit = { OR = { is_on_continent = north_america is_on_continent = south_america } }
+				CAN = { transfer_state = PREV }
+			}
+			every_controlled_state = {
+				limit = { OR = { is_on_continent = australia is_on_continent = asia } }
+				AST = { transfer_state = PREV }
+			}
+			every_controlled_state = {
+				limit = { is_on_continent = middle_east }
+				RAJ = { transfer_state = PREV }
+			}
+			every_controlled_state = {
+				limit = { is_on_continent = africa NOT = { is_core_of = EGY is_core_of = SUD is_core_of = KEN state = 548 } }
+				SAF = { transfer_state = PREV }
+			}
+			ENG = {
+				transfer_state = 453
+				transfer_state = 454
+				transfer_state = 455
+				transfer_state = 269
+			}
+			RAJ = { 
+				transfer_state = 422 
+				transfer_state = 281
+				transfer_state = 320
+			}
+			SAF = {
+				release_puppet = NGA
+				release_puppet = GHA
+				release_puppet = SIE
+				release_puppet = GAM
+			}
+			AST = { puppet = MAL puppet = INS }
+		}
+		news_event = { hours = 6 id = OGV_news.2 }
+	}
+}
+country_event = {
+	id = OGV_britain.2
+	title = OGV_britain.2.t
+	desc = OGV_britain.2.desc
+	picture = GFX_report_event_eng_mosley_march_on_downing_street
+
+	fire_only_once = yes
+
+	trigger = { tag = GER ENG = { surrender_progress > 0.4 } }
+
+	mean_time_to_happen = { days = 2 }
+
+	option = { 
+		name = OGV_britain.2.a
+		ai_chance = { base = 1 }
+		custom_effect_tooltip = british_puppet_regime_tooltip
+		hidden_effect = {
+			create_dynamic_country = {
+				original_tag = ENG
+				save_event_target_as = british_reich
+				
+				create_country_leader = {
+					name = "Edward VIII"
+					desc = "POLITICS_EDWARD_EDWARD_DESC"
+					picture = "Portrait_Britain_Edward_VIII.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = { autocratic_imperialist }
+				}
+				transfer_state = 126
+				remove_state_core = 119
+				every_state = {
+					limit = {
+						is_core_of = ENG
+						NOT = { state = 127 }
+						NOT = { state = 119 }
+						NOT = { is_owned_by = SCO }
+						NOT = { is_owned_by = WLS }
+						NOT = { is_core_of = CAN }
+					}
+					event_target:british_reich = { transfer_state = PREV }
+				}
+				# Colonial possessions
+				transfer_state = 701
+				transfer_state = 700
+				transfer_state = 274
+				transfer_state = 558
+				transfer_state = 900
+				transfer_state = 901
+				transfer_state = 902
+				transfer_state = 703
+				transfer_state = 704
+				transfer_state = 707
+				transfer_state = 710
+				transfer_state = 299
+				transfer_state = 720
+				transfer_state = 709
+				transfer_state = 659
+				transfer_state = 906
+
+				set_cosmetic_tag = ENG_british_reich
+				add_ideas = tot_economic_mobilisation
+				add_ideas = extensive_conscription
+				load_focus_tree = british_focus
+				complete_national_focus = limited_rearmament_focus
+				complete_national_focus = air_defense_focus
+				complete_national_focus = radar_focus
+				complete_national_focus = shadow_scheme_focus
+				complete_national_focus = uk_empire_focus
+				complete_national_focus = uk_service_focus
+				complete_national_focus = uk_colonial_focus
+				complete_national_focus = uk_commonwealth_focus
+				GER = {
+					set_autonomy = { target = event_target:british_reich autonomy_state = autonomy_satellite }
+					set_state_controller = 127
+				}
+				ENG = {
+					transfer_units_fraction = {
+						target = event_target:british_reich
+						size = 0.4
+						stockpile_ratio = 0.8
+						army_ratio = 0.5
+						navy_ratio = 0.5
+						air_ratio = 0.7
+						keep_unit_leaders_trigger = {
+							OR = {
+								has_trait = old_guard
+								has_trait = old_guard_navy
+								has_trait = exiled_leader
+								is_field_marshal = yes
+							}
+						}
+					}
+					ENG_jfc_fuller = { set_nationality = event_target:british_reich }
+					ENG_john_beckett = { set_nationality = event_target:british_reich }
+					ENG_mary_sophia_allen = { set_nationality = event_target:british_reich }
+				}
+				if = {
+					limit = {
+						ITA = { 
+							has_war_with = ENG
+							is_in_faction_with = GER
+						}
+					}
+					ITA = {
+						set_state_controller = 116
+						set_state_controller = 183
+					}
+				}
+				if = {
+					limit = { has_dlc = "La Resistance" has_intelligence_agency = no }
+					create_intelligence_agency = { name = "SS-GB" icon = "GFX_intelligence_agency_logo_uk" }
+					upgrade_intelligence_agency = upgrade_army_department
+					upgrade_intelligence_agency = upgrade_interrogation_techniques
+					upgrade_intelligence_agency = upgrade_passive_defense
+				}
+				set_popularities = {
+					fascism = 30
+					democratic = 45
+					neutrality = 25
+				}
+				create_field_marshal = {
+					name = "Edward VIII"
+					picture = "Portrait_Britain_Edward_VIII.dds"
+					traits = { old_guard politically_connected media_personality harsh_leader infantry_leader }
+					skill = 4
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				if = {
+					limit = {
+						ENG = { has_country_flag = ENG_collaborator_flag }
+					}
+					change_tag_from = ENG
+				}
+			}
+			news_event = { days = 1 id = OGV_news.3 }
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = IRE
+			expire = 0
+		}
+		hidden_effect = { 
+			ENG = { country_event = { id = OGV_britain.5 days = 7 } } 
+		}
+		set_global_flag = british_reich
+	}
+	option = { 
+		name = OGV_britain.2.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			type = annex_everything
+			target = IRE
+			expire = 0
+		}
+		hidden_effect = { 
+			ENG = { country_event = { id = OGV_britain.5 days = 7 } } 
+		}
+	}
+}
+country_event = {
+	id = OGV_britain.3
+	title = OGV_britain.3.t
+	desc = OGV_britain.3.desc
+	picture = GFX_report_event_german_troops
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = OGV_britain.3.a
+		ai_chance = { base = 1 }
+		IRE = {
+			hidden_effect = {				
+				set_state_controller = 113
+				set_state_controller = 134
+				set_state_controller = 135
+				set_portraits = { character = IRE_eoin_oduffy civilian = { large ="gfx/leaders/Portrait_Eoin_O_Duffy.dds" } }
+			}
+			start_civil_war = {
+				ideology = fascism
+				size = 1
+
+				GER = { set_autonomy = { target = PREV autonomy_state = autonomy_reichsprotectorate end_wars = no end_civil_wars = no } }
+
+				hidden_effect = {
+					set_state_controller = 119
+					set_state_controller = 113
+					set_state_controller = 134
+					set_state_controller = 135
+					add_ideas = tot_economic_mobilisation
+					add_ideas = limited_conscription
+					set_cosmetic_tag = IRE_irish_reich
+					set_capital = { state = 113 }
+				}
+			}
+		}
+		set_global_flag = irish_reich
+	}
+	option = { 
+		name = OGV_britain.3.b
+		ai_chance = { base = 0 }
+	}
+}
+country_event = {
+	id = OGV_britain.4
+	title = OGV_britain.4.t
+	desc = OGV_britain.4.desc
+	picture = GFX_report_event_spr_nationalist_soldiers
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		any_state = {
+			is_core_of = SCO
+			is_owned_or_subject_trigger = yes
+		}
+		NOT = {
+			ENG = {
+				controls_state = 126
+			}
+		}
+	}
+	mean_time_to_happen = { days = 2 }
+
+	option = { 
+		name = OGV_britain.4.a
+		ai_chance = { base = 0 }
+		random_country = {
+			limit = {
+				controls_state = 121
+				controls_state = 136
+				controls_state = 120
+				controls_state = 133
+			}
+			release_on_controlled = SCO
+			GER = { set_autonomy = { target = SCO autonomy_state = autonomy_reichsprotectorate freedom_level = 0.1 } }
+		}
+		hidden_effect = {
+			SCO = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 2000
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 500
+					producer = GER
+				}
+				set_politics = { ruling_party = ROOT elections_allowed = no }
+			}
+		}
+	}
+	option = { 
+		name = OGV_britain.4.b
+		ai_chance = { base = 1 }
+	}
+}
+country_event = {
+	id = OGV_britain.5
+	title = OGV_britain.5.t
+	desc = OGV_britain.5.desc
+	picture = GFX_report_event_canada_treaty
+
+	is_triggered_only = yes
+
+	option = {
+		name = OGV_britain.5.a
+		ai_chance = { base = 1 }
+		CAN = {
+			add_state_core = 696
+			transfer_state = 696
+			transfer_state = 332
+			transfer_state = 331
+			create_country_leader = {
+				name = "Winston Churchill"
+				desc = "POLITICS_WINSTON_CHURCHILL_DESC"
+				picture = "gfx/leaders/ENG/Portrait_Britain_Winston_Churchill.dds"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+					british_bulldog
+				}
+			}
+			add_ideas = ENG_george_vi
+			remove_ideas = CAN_conscription_crisis
+			remove_ideas = CAN_conscription_crisis_mended
+		}
+		ENG = {
+			add_ideas = ENG_imperial_conscription_idea
+			add_legitimacy = 50
+		}
+	}
+	option = {
+		name = OGV_britain.5.b
+		ai_chance = { base = 1 }
+		ENG = {
+			add_ideas = ENG_imperial_conscription_idea
+			add_legitimacy = 50
+		}
+		CAN = {
+			add_state_core = 696
+			transfer_state = 696
+			transfer_state = 332
+			transfer_state = 331
+			create_country_leader = {
+				name = "Winston Churchill"
+				desc = "POLITICS_WINSTON_CHURCHILL_DESC"
+				picture = "gfx/leaders/ENG/Portrait_Britain_Winston_Churchill.dds"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+					british_bulldog
+				}
+			}
+			add_ideas = ENG_george_vi
+			remove_ideas = CAN_conscription_crisis
+			remove_ideas = CAN_conscription_crisis_mended
+
+			change_tag_from = ENG
+		}
+	}
+}
+country_event = {
+	id = OGV_britain.6
+	title = OGV_britain.6.t
+	desc = OGV_britain.6.desc
+	picture = GFX_report_event_albanian_partisans
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		any_state = {
+			is_core_of = WLS
+			is_owned_or_subject_trigger = yes
+		}
+		NOT = {
+			ENG = {
+				controls_state = 126
+			}
+		}
+	}
+	mean_time_to_happen = { days = 2 }
+
+	option = { 
+		name = OGV_britain.6.a
+		ai_chance = { base = 0 }
+		random_country = {
+			limit = {
+				controls_state = 122
+			}
+			release_on_controlled = WLS
+			GER = { set_autonomy = { target = WLS autonomy_state = autonomy_reichsprotectorate freedom_level = 0.1 } }
+		}
+		hidden_effect = {
+			WLS = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 2000
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 500
+					producer = GER
+				}
+				set_politics = { ruling_party = ROOT elections_allowed = no }
+			}
+		}
+	}
+	option = { 
+		name = OGV_britain.6.b
+		ai_chance = { base = 1 }
+	}
+}
+# France
+
+country_event = {
+	id = OGV_france.1
+	title = OGV_france.1.t
+	desc = OGV_france.1.desc
+	picture = GFX_report_event_german_parade_paris
+
+	is_triggered_only = yes
+
+	option = {
+		name = OGV_france.1.a
+		ai_chance = { base = 1 }
+		drop_cosmetic_tag = yes
+		set_cosmetic_tag = FRA_french_state
+		set_capital = { state = 16 }
+
+		if = {
+			limit = { is_dynamic_country = yes }
+			remove_state_core = 28
+			remove_state_core = 735
+			GER = {
+				transfer_state = 28
+				transfer_state = 29
+				transfer_state = 735
+			}
+		}
+		load_focus_tree = french_focus
+
+		unlock_national_focus = FRA_begin_rearmament
+		unlock_national_focus = FRA_defensive_focus
+		unlock_national_focus = FRA_firepower_kills
+		unlock_national_focus = FRA_devalue_the_franc
+		unlock_national_focus = FRA_invest_in_the_metropole
+
+		unlock_national_focus = FRA_revive_the_national_bloc
+		unlock_national_focus = FRA_right_wing_rhetoric
+
+		complete_national_focus = FRA_agricultural_protectionism
+		complete_national_focus = FRA_ban_communism
+	}
+}
+add_namespace = OGV_news
+
+news_event = {
+	id = OGV_news.1
+	title = OGV_news.1.t
+	desc = OGV_news.1.desc
+	picture = GFX_news_event_ogv_soviet_collapse
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = OGV_news.1.a
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = GER
+					is_in_faction_with = GER
+				}
+			}
+			NOT = {
+				OR = {
+					original_tag = JAP
+					is_in_faction_with = JAP
+				}
+			}
+			NOT = {
+				capital_scope = { is_core_of = SOV }
+			}
+		}
+	}
+	option = {
+		name = OGV_news.1.b
+		trigger = { 
+			OR = {
+				original_tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = {
+		name = OGV_news.1.c
+		trigger = { 
+			OR = {
+				original_tag = JAP
+				is_in_faction_with = JAP
+			}
+		}
+	}
+	option = {
+		name = OGV_news.1.d
+		trigger = { 
+			capital_scope = { is_core_of = SOV }
+			NOT = { is_in_faction_with = GER }
+			NOT = { is_in_faction_with = JAP }
+		}
+	}
+}
+
+news_event = {
+	id = OGV_news.2
+	title = OGV_news.2.t
+	desc = OGV_news.2.desc
+	picture = GFX_news_event_churchill_ruins
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = OGV_news.2.a
+		trigger = {
+			NOT = { original_tag = ENG }
+			NOT = { is_in_faction_with = ENG }
+		}
+	}
+	option = {
+		name = OGV_news.2.b
+		trigger = { 
+			OR = {
+				original_tag = ENG
+				is_in_faction_with = ENG
+			}
+		}
+	}
+}
+
+news_event = {
+	id = OGV_news.3
+	title = OGV_news.3.t
+	desc = OGV_news.3.desc
+	picture = GFX_news_event_hitler_speech
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = OGV_news.3.a
+		trigger = {
+			NOT = { original_tag = GER }
+			NOT = { is_in_faction_with = GER }
+			NOT = { original_tag = ENG }
+		}
+	}
+	option = {
+		name = OGV_news.3.b
+		trigger = { 
+			OR = {
+				original_tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = {
+		name = OGV_news.3.c
+		trigger = {
+			AND = {
+				original_tag = ENG
+				has_government = democratic
+			}	
+		}
+	}
+}

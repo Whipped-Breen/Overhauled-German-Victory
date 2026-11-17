@@ -1,0 +1,2435 @@
+focus_tree = {
+	id = reichskommissariat_focus 
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				tag = RKN
+				tag = RKS
+				tag = RKD
+				tag = RKH
+				tag = RKB
+				tag = RKO
+				tag = RKU
+				tag = RKM
+				tag = RKK
+				tag = RKT
+				tag = RKV
+				tag = RKI
+				tag = OSB
+			}
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 100 y = 1200 }
+	
+	focus = {
+		id = reichskommissariat_submit_to_the_fuhrer_ost #Eastern Europe
+		icon = GFX_focus_ger_reichskommisariats
+		x = 12
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = yes
+		allow_branch = { OR = { original_tag = BLR original_tag = UKR original_tag = SOV original_tag = GEO original_tag = KAZ original_tag = VGE } } 
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_political_power = 450
+			add_stability = -0.10
+		}
+	}
+	focus = {
+		id = reichskommissariat_slave_labor
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = reichskommissariat_submit_to_the_fuhrer_ost }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_slave_labor
+		}
+	}
+	focus = {
+		id = reichskommissariat_export_labor
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = reichskommissariat_slave_labor }
+		x = -1
+		y = 2
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_export_labor
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_command
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = reichskommissariat_submit_to_the_fuhrer_ost }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_german_command
+		}
+	}
+	focus = {
+		id = reichskommissariat_permit_religious_liberty
+		icon = GFX_focus_GRE_an_orthodox_state
+		prerequisite = { focus = reichskommissariat_german_command }
+		x = 1
+		y = 2
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = reichskommissariat_reprivatize_land
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = reichskommissariat_permit_religious_liberty }
+		prerequisite = { focus = reichskommissariat_export_labor }
+		x = 0
+		y = 3
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_stability = 0.05
+			every_controlled_state = {
+				limit = {
+					infrastructure > 3
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_panzer_factories
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = reichskommissariat_reprivatize_land }
+		prerequisite = { focus = reichskommissariat_local_research }
+		x = -2
+		y = 4
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_export_resources
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = reichskommissariat_reprivatize_land }
+		x = 4
+		y = 1
+		relative_position_id = reichskommissariat_reprivatize_land
+		cost = 10
+		
+		available_if_capitulated = yes
+		allow_branch = { is_debug = yes }
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					OR = {
+						has_resources_amount = { resource = oil amount > 0 }
+						has_resources_amount = { resource = aluminium amount > 0 }
+						has_resources_amount = { resource = rubber amount > 0 }
+						has_resources_amount = { resource = tungsten amount > 0 }
+						has_resources_amount = { resource = steel amount > 0 }
+						has_resources_amount = { resource = chromium amount > 0 }
+					}
+				}
+				ROOT = {
+					give_resource_rights = { receiver = GER state = PREV }
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_industrial_research
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = reichskommissariat_reprivatize_land }
+		x = 2
+		y = 1
+		relative_position_id = reichskommissariat_reprivatize_land
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_tech = fuel_refining4 } }
+				set_technology = { fuel_refining4 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = fuel_refining5 } }
+				set_technology = { fuel_refining5 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = synth_oil_experiments } }
+				set_technology = { synth_oil_experiments = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = improved_oil_processing } }
+				set_technology = { improved_oil_processing = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = advanced_oil_processing } }
+				set_technology = { advanced_oil_processing = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = improved_rubber_processing } }
+				set_technology = { improved_rubber_processing = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = advanced_rubber_processing  } }
+				set_technology = { advanced_rubber_processing = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = construction5 } }
+				set_technology = { construction5 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = excavation1 } }
+				set_technology = { excavation1 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = excavation2 } }
+				set_technology = { excavation2 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = excavation3 } }
+				set_technology = { excavation3 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = excavation4 } }
+				set_technology = { excavation4 = 1 }
+			}
+			if = {
+				limit = { NOT = { has_tech = excavation5 } }
+				set_technology = { excavation5 = 1 }
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_lebensraum
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = reichskommissariat_reprivatize_land }
+		x = 0
+		y = 5
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_ost
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+		
+		available = {
+			NOT = { has_war_with = SOV }
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = { ideology = fascism popularity = -0.1 }
+			every_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city	
+						has_state_category = megalopolis
+						has_state_category = metropolis
+						has_state_category = large_town
+						# For Ostland
+						state = 13
+						state = 12
+						state = 11
+						state = 784
+					}
+				}
+				add_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+			}
+			every_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = town
+						has_state_category = small_island
+					}
+				}
+				add_dynamic_modifier = { modifier = GER_lebensraum_state_slave }
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_mass_deportation
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = reichskommissariat_lebensraum }
+		x = 2
+		y = 1
+		relative_position_id = reichskommissariat_lebensraum
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+		
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = reichskommissariat_mass_deportation days = 1460 }
+			every_other_country = {
+				limit = {
+					capital_scope = { is_core_of = SOV }
+					is_in_faction = no
+				}
+				add_timed_idea = { idea = siberia_refugees days = 1460 }
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_settlement
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = reichskommissariat_mass_deportation }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_mass_deportation
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+		
+		available = {
+			NOT = {
+				has_idea = reichskommissariat_mass_deportation
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = reichskommissariat_settlement days = 2920 }
+		}
+	}
+	focus = {
+		id = reichskommissariat_wehrbauer
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = reichskommissariat_lebensraum }
+		x = -2
+		y = 1
+		relative_position_id = reichskommissariat_lebensraum
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+		
+		available = {
+			
+		}
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+				}
+				add_manpower = 358734
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_germanization
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = reichskommissariat_lebensraum }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_lebensraum
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+		
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_ideas = { reichskommissariat_germanization }
+		}
+	}
+	
+	focus = {
+		id = reichskommissariat_submit_to_the_fuhrer_westen #Western Europe
+		icon = GFX_focus_ger_reichskommisariats
+		x = 12
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = yes
+		allow_branch = { OR = { original_tag = NOR original_tag = SWE original_tag = DEN original_tag = HOL original_tag = BEL original_tag = AUS } } 
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_political_power = 450
+			add_stability = -0.1
+		}
+	}
+	focus = {
+		id = reichskommissariat_gastarbeitnehmer 
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = reichskommissariat_submit_to_the_fuhrer_westen }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_gastarbeitnehmer
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = reichskommissariat_war_contribution
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = reichskommissariat_gastarbeitnehmer }
+		x = 1
+		y = 2
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_german_war_factories
+		}
+	}
+	focus = {
+		id = reichskommissariat_appeal_to_the_local_people
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = reichskommissariat_submit_to_the_fuhrer_westen }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = { ideology = fascism popularity = 0.1 }
+			add_popularity = { ideology = communism popularity = -0.1 }
+		}
+	}
+	focus = {
+		id = reichskommissariat_collaborate_with_local_fascists
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = reichskommissariat_appeal_to_the_local_people }
+		x = -1
+		y = 2
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_stability = 0.2
+			add_ideas = reichskommissariat_collaborate_with_local_fascists
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_national_socialism
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = reichskommissariat_collaborate_with_local_fascists }
+		prerequisite = { focus = reichskommissariat_war_contribution }
+		x = 0
+		y = 3
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_local_national_socialism
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_wehrmacht
+		icon = GFX_focus_ger_oppose_hitler
+		prerequisite = { focus = reichskommissariat_local_national_socialism }
+		prerequisite = { focus = reichskommissariat_local_research }
+		x = -2
+		y = 4
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_local_wehrmacht
+		}
+	}
+	focus = {
+		id = reichskommissariat_germanic_heritage
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = reichskommissariat_local_national_socialism }
+		x = 0
+		y = 5
+		relative_position_id = reichskommissariat_submit_to_the_fuhrer_westen
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+		
+		available = {
+			126 = { CONTROLLER = { NOT = { has_war_with = ROOT } } }
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			army_experience = 10
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					set_state_flag = lebensraum_germanic_state
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_research
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = reichskommissariat_germanic_heritage }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_germanic_heritage
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			set_research_slots = 4
+		}
+	}
+	focus = {
+		id = reichskommissariat_partake_in_lebensraum
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = reichskommissariat_germanic_heritage }
+		x = 2
+		y = 1
+		relative_position_id = reichskommissariat_germanic_heritage
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+		
+		available = {
+			any_country = {
+				has_completed_focus = reichskommissariat_lebensraum
+			}
+		}
+
+		completion_reward = {
+			random_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					NOT = { has_state_flag = lebensraum_state_colonialized }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_manpower = 358734
+				set_state_flag = lebensraum_state_colonialized
+			}
+			random_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					NOT = { has_state_flag = lebensraum_state_colonialized }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_manpower = 80000
+				set_state_flag = lebensraum_state_colonialized
+			}
+			random_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					NOT = { has_state_flag = lebensraum_state_colonialized }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_manpower = 80000
+				set_state_flag = lebensraum_state_colonialized
+			}
+			random_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_lebensraum_state_colony }
+					NOT = { has_state_flag = lebensraum_state_colonialized }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_manpower = 80000
+				set_state_flag = lebensraum_state_colonialized
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_promote_german_language
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = reichskommissariat_germanic_heritage }
+		x = -2
+		y = 1
+		relative_position_id = reichskommissariat_germanic_heritage
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = reichskommissariat_promote_german_language
+		}
+	}
+
+	focus = {
+		id = OSB_submit_to_the_reichsfuhrer #Burgandy
+		icon = GFX_focus_ger_reichskommisariats
+		x = 12
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = yes
+		allow_branch = { original_tag = OSB }
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+		
+		}
+
+		completion_reward = {
+			add_political_power = 450
+			add_popularity = { ideology = fascism popularity = 0.2 }
+			set_victory_points = {
+				province = 3652
+				value = 30
+			}
+		}
+	}
+	focus = {
+		id = OSB_collaborators
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = OSB_submit_to_the_reichsfuhrer }
+		x = -1
+		y = 1
+		relative_position_id = OSB_submit_to_the_reichsfuhrer
+		cost = 5
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = { OSB_collaborators }
+		}
+	}
+	focus = {
+		id = OSB_waffen_ss_volunteers
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = OSB_collaborators }
+		x = 0
+		y = 1
+		relative_position_id = OSB_collaborators
+		cost = 5
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = { OSB_waffen_ss_volunteers }
+		}
+	}
+	focus = {
+		id = OSB_germaniation
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = OSB_collaborators }
+		x = -2
+		y = 1
+		relative_position_id = OSB_collaborators
+		cost = 3
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = { OSB_germaniation }
+		}
+	}
+	focus = {
+		id = OSB_complete_SS_state
+		icon = GFX_OSB_goal
+		prerequisite = { focus = OSB_waffen_ss_volunteers }
+		prerequisite = { focus = reichskommissariat_local_research }
+		x = -1
+		y = 1
+		relative_position_id = OSB_waffen_ss_volunteers
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = OSB_waffen_ss_volunteers
+				add_idea = OSB_complete_SS_state
+			}
+		}
+	}
+	focus = {
+		id = OSB_build_up_the_nation
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = OSB_submit_to_the_reichsfuhrer }
+		x = 1
+		y = 1
+		relative_position_id = OSB_submit_to_the_reichsfuhrer
+		cost = 5
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = OSB_german_industrial_support
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = OSB_build_up_the_nation }
+		x = 0
+		y = 1
+		relative_position_id = OSB_build_up_the_nation
+		cost = 5
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = GER_autarky_idea
+			add_ideas = GER_grosraumwirtschaft
+		}
+	}
+	focus = {
+		id = OSB_german_equipment
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = OSB_german_industrial_support }
+		mutually_exclusive = { focus = OSB_french_equipment }
+		x = -1
+		y = 1
+		relative_position_id = OSB_german_industrial_support
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_war_support = 4
+			army_experience = 100
+			air_experience = 100
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = support_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = motorized_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = artillery_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = light_tank_chassis_3 
+			    amount = 500
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = mechanized_equipment 
+			    amount = 500
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = small_plane_airframe 
+			    amount = 1000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = large_plane_airframe 
+			    amount = 200
+			    producer = GER
+			}
+		}
+	}
+	focus = {
+		id = OSB_french_equipment
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = OSB_german_industrial_support }
+		prerequisite = { focus = OSB_waffen_ss_volunteers }
+		mutually_exclusive = { focus = OSB_german_equipment }
+		x = 1
+		y = 1
+		relative_position_id = OSB_german_industrial_support
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = support_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = motorized_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = artillery_equipment
+			    amount = 2000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = light_tank_chassis_3 
+			    amount = 500
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = mechanized_equipment 
+			    amount = 500
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = small_plane_airframe 
+			    amount = 1000
+			    producer = GER
+			}
+			add_equipment_to_stockpile = {
+			    type = large_plane_airframe 
+			    amount = 200
+			    producer = GER
+			}
+			# France
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = 500
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = support_equipment
+			    amount = 500
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = motorized_equipment
+			    amount = 500
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = artillery_equipment
+			    amount = 500
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = light_tank_chassis_3 
+			    amount = 150
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = mechanized_equipment 
+			    amount = 150
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = small_plane_airframe 
+			    amount = 300
+			    producer = FRA
+			}
+			add_equipment_to_stockpile = {
+			    type = large_plane_airframe 
+			    amount = 50
+			    producer = FRA
+			}
+		}
+	}
+	focus = {
+		id = OSB_german_settlers
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = OSB_french_equipment focus = OSB_german_equipment }
+		x = 0
+		y = 2
+		relative_position_id = OSB_german_industrial_support
+		cost = 10
+		
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = OSB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_manpower = 305000
+			}
+		}
+	}
+	focus = {
+		id = OSB_cast_system
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = OSB_german_settlers }
+		x = 0
+		y = 2
+		relative_position_id = OSB_german_settlers
+		cost = 10
+		
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = OSB_guns_and_equipment
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = OSB_french_equipment focus = OSB_german_equipment }
+		prerequisite = { focus = OSB_waffen_ss_volunteers }
+		x = -3
+		y = 3
+		relative_position_id = OSB_german_industrial_support
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = OSB_guns_and_equipment
+		}
+	}
+	focus = {
+		id = OSB_luftwaffe
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = reichskommissariat_plane_manufacturing }
+		prerequisite = { focus = OSB_kriegsmarine }
+		x = 0
+		y = 2
+		relative_position_id = OSB_guns_and_equipment
+		cost = 10
+		
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = GER_air_innovations_2_idea
+			add_tech_bonus = {
+				name = radar_tech_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = radar_tech
+			}
+			add_ideas = { OSB_luftwaffe }
+		}
+	}
+	focus = {
+		id = OSB_kriegsmarine
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = OSB_guns_and_equipment }
+		prerequisite = { focus = reichskommissariat_naval_effort }
+		x = 1
+		y = 1
+		relative_position_id = OSB_guns_and_equipment
+		cost = 10
+		
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bb_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bb_tech
+				category = shbb_tech
+			}
+			add_tech_bonus = {
+				name = cv_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cv_tech
+			}
+			785 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 11420
+					instant_build = yes
+				}
+			}
+			add_ideas = { OSB_kriegsmarine }
+		}
+	}
+	focus = {
+		id = OSB_germanic_imagrants
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = OSB_german_settlers }
+		x = 2
+		y = 1
+		relative_position_id = OSB_german_settlers
+		cost = 10
+		
+		available_if_capitulated = no
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_manpower = 800000
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = reichskommissariat_industrial_effort
+		icon = GFX_goal_generic_production
+		x = 2
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 3
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = reichskommissariat_industrial_effort }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_industrial_effort
+		cost = 10
+
+		
+		available_if_capitulated = yes
+		
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_industry_2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = reichskommissariat_german_industry }
+		prerequisite = { focus = reichskommissariat_our_grossraumwirtschaft }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_german_industry
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_our_grossraumwirtschaft 
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = reichskommissariat_industrial_effort }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_industrial_effort
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					infrastructure < 8
+					infrastructure > 2
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = GER_grosraumwirtschaft
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_war_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = reichskommissariat_industrial_effort }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_industrial_effort
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_war_industry_2
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = reichskommissariat_german_war_industry }
+		prerequisite = { focus = reichskommissariat_our_grossraumwirtschaft }
+		x = 1
+		y = 3
+		relative_position_id = reichskommissariat_industrial_effort
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_refinery_construction
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = reichskommissariat_our_grossraumwirtschaft }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_our_grossraumwirtschaft
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			GER = { add_offsite_building = { type = synthetic_refinery level = 2 } }
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_industry_3
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = reichskommissariat_german_industry_2 }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_german_industry_2
+		cost = 10
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = reichskommissariat_german_industry
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	focus = {
+		id = reichskommissariat_army_effort
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 6
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 50
+			add_tech_bonus = {
+				name = army_effort
+				bonus = 1.0
+				uses = 3
+				category = infantry_tech
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_production
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = reichskommissariat_army_effort}
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_army_effort
+		cost = 8
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = reichskommissariat_local_production
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_research
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = reichskommissariat_local_production }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_local_production
+		cost = 8
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = reichskommissariat_local_production
+				add_idea = reichskommissariat_local_research
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_army_doctrines
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = reichskommissariat_local_research }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_local_research
+		cost = 8
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 2.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_defence
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = reichskommissariat_local_production }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_local_production
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
+	}
+	focus = {
+		id = reichskommissariat_local_ss
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = reichskommissariat_local_defence }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_local_defence
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	focus = {
+		id = reichskommissariat_naval_effort
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = reichskommissariat_local_ss focus = reichskommissariat_army_doctrines }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_local_ss
+		cost = 10
+
+		available_if_capitulated = yes
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+			GER = {
+				has_completed_focus = GER_naval_rearmament
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = naval_effort
+				bonus = 1.0
+				uses = 1
+				category = naval_equipment
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = reichskommissariat_naval_effort }
+		prerequisite = { focus = reichskommissariat_german_war_industry_2 }
+		x = -1
+		y = 1
+		relative_position_id = reichskommissariat_naval_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_dockyards_2
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = reichskommissariat_german_dockyards }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_german_dockyards
+		cost = 10
+
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_german_dockyards_3
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = reichskommissariat_german_dockyards_2 }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_german_dockyards
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_temp_variable = { coastal_state_num = 0 }
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_to_temp_variable = { coastal_state_num = 2 }
+				effect_tooltip = {
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_to_temp_variable = { coastal_state_num = 2 }
+				effect_tooltip = {
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			GER = { add_offsite_building = { type = dockyard level = coastal_state_num } }
+		}
+	}
+	focus = {
+		id = reichskommissariat_u_boats
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = reichskommissariat_german_industry_3 }
+		x = 2
+		y = 1
+		relative_position_id = reichskommissariat_german_dockyards
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = GER_u_boat_effort
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { cruiser_submarines = 1 }
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_modular_construction
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = reichskommissariat_u_boats }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_u_boats
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+			
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = GER_modular_construction
+		}
+	}
+	focus = {
+		id = reichskommissariat_navy_doctrines
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = reichskommissariat_naval_effort }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_naval_effort
+		cost = 8
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 2.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = reichskommissariat_air_effort
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = reichskommissariat_local_ss focus = reichskommissariat_army_doctrines }
+		x = 0
+		y = 1
+		relative_position_id = reichskommissariat_army_doctrines
+		cost = 10
+
+		available_if_capitulated = yes
+
+		available = {
+			GER = {
+				has_completed_focus = GER_air_innovation
+			}
+		}
+
+		completion_reward = {
+			air_experience = 50
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_air_doctrines
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = reichskommissariat_air_effort }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_air_effort
+		cost = 8
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 50
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 2.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_CAS
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = reichskommissariat_air_effort }
+		x = 1
+		y = 1
+		relative_position_id = reichskommissariat_air_effort
+		cost = 10
+		ai_will_do = {
+			factor = 0.25
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber			
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = reichskommissariat_CAS }
+		x = 0
+		y = 2
+		relative_position_id = reichskommissariat_CAS
+		cost = 10
+		ai_will_do = {
+			factor = 0.25
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 3
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_naval_air
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = reichskommissariat_air_effort }
+		prerequisite = { focus = reichskommissariat_naval_effort }
+		x = -1
+		y = 3
+		relative_position_id = reichskommissariat_air_effort
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+	focus = {
+		id = reichskommissariat_plane_manufacturing
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = OSB_guns_and_equipment }
+		prerequisite = { focus = reichskommissariat_air_effort }
+		x = -1
+		y = 1
+		relative_position_id = OSB_guns_and_equipment
+		cost = 10
+		
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = reichskommissariat_plane_manufacturing
+		}
+	}
+}

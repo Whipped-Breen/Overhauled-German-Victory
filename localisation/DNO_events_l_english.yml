@@ -1,0 +1,109 @@
+﻿l_english:
+ OGV_britain.1.t:0 "Fate of the Empire"
+ OGV_britain.1.desc:0 "With the Wehrmacht marching though England's fields the time has come to decide the fate of our empire."
+ OGV_britain.1.a:0 "Continue the war from Canada."
+ OGV_britain.1.b:0 "Surrender the Mothercounty."
+ OGV_britain.1.c:0 "Supersede the Empire."
+ 
+ OGV_britain.2.t:0 "Triumph in Britain"
+ OGV_britain.2.desc:0 "Our victory in Britain is complete. The British government has evacuated to Canada, leaving us in control of the mainland. We can now create a puppet regime under Edward VIII, not Mosley, as his dislike of war makes him unsuitable for such a position."
+ OGV_britain.2.a:0 "Establish British puppet state."
+ OGV_britain.2.b:0 "Rather not."
+ 
+ OGV_britain.3.t:0 "Triumph in Ireland"
+ OGV_britain.3.desc:0 "Our victory in Ireland is complete. The Irish  government has fled, leaving us in control of the mainland. We can now create a puppet regime under Irish politician Eoin O'Duffy."
+ OGV_britain.3.a:0 "Establish Irish puppet state."
+ OGV_britain.3.b:0 "Rather not."
+
+ OGV_britain.4.t:0 "Division of Britain I"
+ OGV_britain.4.desc:0 "In order to better controle the British Isles we can split off the second largest kingdom in the UK, so to dived there power."
+ OGV_britain.4.a:0 "Establish Scotish puppet state."
+ OGV_britain.4.b:0 "Rather not."
+
+ OGV_britain.5.t:0 "Exile In Canada"
+ OGV_britain.5.desc:0 ""
+ OGV_britain.5.a:0 "Take full control of Canada"
+ OGV_britain.5.b:0 "Move the goverment to Canada"
+ OGV_britain.5.c:0 "Transfer the Commonwealth to Canada"
+
+ OGV_britain.6.t:0 "Division of Britain II"
+ OGV_britain.6.desc:0 "In order to better controle the British Isles we can split off the third largest kingdom in the UK, so to dived there power."
+ OGV_britain.6.a:0 "Establish Welsh puppet state."
+ OGV_britain.6.b:0 "Rather not."
+
+ germany_plus.1.t:0 "Subservience to the Reich"
+
+ germany_plus.2.t:0 "Subservience to the Reich"
+
+ germany_plus.3.t:0 "Fate of Italy"
+ germany_plus.3.desc:0 "We must now decide the fate of [ITA.GetLeader] and the Italian Peninsula"
+ germany_plus.3.a:0 "Establish the Italian Social Republic and Reichsprotektorat Hochitalien!"
+ germany_plus.3.b:0 "Establish the Italian Social Republic!"
+ germany_plus.3.c:0 "Establish the Italian Social Republic, seize Germanic Italy!"
+
+ germany_plus.4.t:0 "Occupation of Denmark"
+ germany_plus.4.desc:0 "We will respect Danish sovereignty and territorial integrity, as well as neutrality, and most Danish institutions will continue to function relatively normally. King Christian X will remain in the country as Danish head of state. We will be formally represented by a Reichsbevollmächtigter."
+ germany_plus.4.a:0 "Civilian occupation."
+
+ germany_plus.5.t:0 "Transfer ownership of Åland"
+
+ germany_plus.6.t:0 "Give Portuguese colonies to Mittelafrika"
+
+ germany_plus.7.t:0 "Ultimatum from the [GER.GetFactionName]"
+ germany_plus.7.desc:0 "With Turkey under the thumb of Germany, [From.GetLeader] has put pressure on our government to join their ranks. The Soviet-German alliance has put us in a position where neutrality is no longer an option, and now an ultimatum has arrived from Berlin demanding we cede our eastern territories to their Soviet allies and join them in the very pact they are using to force our hand.\n\nAlthough we cannot maintain neutrality, there are other options. Seeking support from Britain is one, standing our ground is another. None, however, can secure the future of the republic with certainty."
+ germany_plus.7.a:0 "If we work with the Germans, we may find the opportunity to reclaim other land."
+ germany_plus.7.b:0 "We can count on British support, and they can count on us."
+ germany_plus.7.c:0 "If these despots want to take our home, they have to fight for it."
+
+ germany_plus.8.t:0 "Ultimatum from the [GER.GetFactionName]"
+ germany_plus.8.desc:0 "With Turkey under the thumb of Germany, [From.GetLeader] has put pressure on our government to join their ranks. The Soviet-German alliance has put us in a position where neutrality is no longer an option, and now an ultimatum has arrived from Berlin demanding we cede our eastern territories to their Soviet allies and join them in the very pact they are using to force our hand.\n\nAlthough we cannot maintain neutrality, there are other options. Seeking support from Britain is one, standing our ground is another. None, however, can secure the future of the republic with certainty."
+ germany_plus.8.a:0 "If we work with the Germans, we may find the opportunity to reclaim other land."
+ germany_plus.8.b:0 "We can count on British support, and they can count on us."
+ germany_plus.8.c:0 "If these despots want to take our home, they have to fight for it."
+
+ germany_plus.9.t:0 "Ultimatum from the [GER.GetFactionName]"
+ germany_plus.9.desc:0 "With Turkey under the thumb of Germany, [From.GetLeader] has put pressure on our government to join their ranks. The Soviet-German alliance has put us in a position where neutrality is no longer an option, and now an ultimatum has arrived from Berlin demanding we cede our eastern territories to their Soviet allies and join them in the very pact they are using to force our hand.\n\nAlthough we cannot maintain neutrality, there are other options. Seeking support from Britain is one, standing our ground is another. None, however, can secure the future of the republic with certainty."
+ germany_plus.9.a:0 "If we work with the Germans, we may find the opportunity to reclaim other land."
+ germany_plus.9.b:0 "We can count on British support, and they can count on us."
+ germany_plus.9.c:0 "If these despots want to take our home, they have to fight for it."
+ germany_plus.10.t:0 "SS-NKVD Cooperation"
+
+ germany_plus.11.t:0 "SS-NKVD Cooperation"
+ germany_plus.11.desc:0 "NKVD manpower has been sent to support the extra divisions from the USSR."
+ germany_plus.11.a:0 "Useful"
+
+ germany_plus.12.t:0 "Ultimatum to the Danish government"
+ germany_plus.12.desc:0 "We have sent an ultimatum to the Danish government, including the following demands; A ban on people assembling in public, outlawing strikes, the introduction of a curfew, censorship should be conducted with German assistance, special (German military) courts should be introduced, and the death penalty should be introduced in cases of sabotage. In addition, the city of Odense was ordered to pay a fine of 1 million kroner for the death of a German soldier killed in that city and hostages were to be held as security.\n\nThe Danish government refused."
+ germany_plus.12.a:0 "Institute martial law."
+
+ germany_plus.13.t:0 "Occupation of Yugoslavia"
+ germany_plus.13.desc:0 "Yugoslavia will be divided between the surrounding Axis states in accordance with territorial claims and control of key logistics and resources for the Reich."
+ germany_plus.13.a:0 "Initiate Occupation! Make a [CRO.GetAdjective] puppet"
+ germany_plus.13.b:0 "Initiate Occupation!"
+
+ germany_plus.14.t:0 "[PER.GetAdjective] - [GER.GetAdjective] Treaty"
+ germany_plus.14.desc:0 ""
+ germany_plus.14.a:0 "They are our natural allies"
+ germany_plus.14.b:0 "We are not their puppet"
+ 
+ germany_plus.15.t:0 "[FROM.GetNameDef] has refused"
+ germany_plus.15.desc:0 "[FROM.Capital.GetCapitalVictoryPointName] has refused our demands! They are hiding behind the Klaipeda Convention, claiming that Germany has no legal right to the Memel territory. We shall have to explain our position to them by different means..."
+ germany_plus.15.a:0 "Well..."
+
+ OGV_news.1.t:0 "Collapse of the Soviet Union"
+ OGV_news.1.desc:0 "German officials have just announced the surrendering of European Russia too the Wehrmacht, with Siberia and Central Asia breaking off. However, in the east the Japanese and its puppets have seized countrol over the former USSR's territories in the East due to the Red Army having moved its forces to the nations's western front."
+ OGV_news.1.a:0 "One less troublemaker in the world"
+ OGV_news.1.b:0 "Finally"
+ OGV_news.1.c:0 "One step closer to realising East Asian Co-Prosperity"
+ OGV_news.1.d:0 "Time to carve out our own path"
+
+ OGV_news.2.t:0 "Commonwealth Moves to Canada"
+ OGV_news.2.desc:0 "With the fall of the British Isles [ENG.GetLeader] has relocated the Empire's government to Canada, in order to continue the war from overseas.\n\nYet it remains to be seen whether the shift in power will destabilize the Empire, and keep up the fight after such a loss."
+ OGV_news.2.a:0 "The British are defiant."
+ OGV_news.2.b:0 "We will never surrender!"
+ 
+ OGV_news.3.t:0 "Armistice of London"
+ OGV_news.3.desc:0 "An armistice between the German Reich and the United Kingdom has been signed at Westminster, in Royal Gallery below the large paintings of important moments in British military history.\n\nUnder the terms of the armistice, a British government under King Edward VIII will continue to administer the British mainland under [GER.GetNameAdjective] Supervision."
+ OGV_news.3.a:0 "Disturbing."
+ OGV_news.3.b:0 "England lives and marches on!"
+ OGV_news.3.c:0 "We will never surrender!"

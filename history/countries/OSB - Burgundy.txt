@@ -1,0 +1,42 @@
+﻿capital = 27
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_convoys = 20
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1939.6.6"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascism = 100
+}
+
+load_focus_tree = reichskommissariat_focus
+add_ideas = war_economy
+
+recruit_character = OSB_heinrich_himmler
+recruit_character = OSB_walter_schellenberg
+recruit_character = OSB_ar
+recruit_character = OSB_acr
+recruit_character = OSB_mt
+recruit_character = OSB_stc
+recruit_character = OSB_aa2
+recruit_character = OSB_acgs
+recruit_character = OSB_ncm
+recruit_character = OSB_nccr
+recruit_character = OSB_coi
+recruit_character = OSB_democratic_guy
+recruit_character = OSB_acd2
+recruit_character = OSB_acas
+recruit_character = OSB_communist_guy
+recruit_character = OSB_ncs
+recruit_character = OSB_awt
+recruit_character = OSB_ai2
+recruit_character = OSB_nt
+#recruit_character = OSB_aco2

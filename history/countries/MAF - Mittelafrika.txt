@@ -1,0 +1,45 @@
+﻿capital = 546
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_convoys = 20
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 25
+	fascism = 20
+	communism = 5
+	neutrality = 50
+}
+recruit_character = MAF_franz_ritter_von_epp
+recruit_character = MAF_ar
+recruit_character = MAF_acr
+recruit_character = MAF_mt
+recruit_character = MAF_stc
+recruit_character = MAF_aa2
+recruit_character = MAF_acgs
+recruit_character = MAF_ncm
+recruit_character = MAF_nccr
+recruit_character = MAF_coi
+recruit_character = MAF_democratic_guy
+recruit_character = MAF_acd2
+recruit_character = MAF_acas
+recruit_character = MAF_communist_guy
+recruit_character = MAF_ncs
+recruit_character = MAF_awt
+recruit_character = MAF_pot
+recruit_character = MAF_fascist_guy
+recruit_character = MAF_ai2
+recruit_character = MAF_nt
+recruit_character = MAF_aco2
+
+add_ideas = MAF_reichskolonialbund
+add_ideas = partial_economic_mobilisation

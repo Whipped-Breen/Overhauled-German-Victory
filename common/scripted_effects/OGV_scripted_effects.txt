@@ -1,0 +1,162 @@
+siberian_nationalist_independence = {
+	set_temp_variable = { siberian_nationalist_country = this }
+	division_template = {
+		name = "Independence Division"
+		is_locked = yes
+		priority = 1
+		template_counter = 3
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+		}
+	}
+	every_core_state = {
+		limit = {
+			is_owned_and_controlled_by = SOV
+			NOT = { state = 406 }
+			NOT = { state = 407 }
+#			NOT = { state = 657 }
+#			NOT = { state = 409 }
+#			NOT = { state = 408 }
+		}
+		var:siberian_nationalist_country = { transfer_state = PREV }
+		if = {
+			limit = {
+				NOT = { is_owned_and_controlled_by = RSB }
+			}
+			SOV = {
+				delete_unit = { 
+					state = PREV 
+					disband = no 
+				}
+			}
+			if = {
+				limit = { owner = { not = { tag = FER } } JAP = { is_subject = yes } }
+				create_unit = { division = "name = \"Independence Division\" division_template = \"Independence Division\" start_experience_factor = 0.05" owner = var:siberian_nationalist_country count = 1 }
+			}
+		}
+	}
+	random_owned_state = {
+		limit = { is_capital = yes }
+		create_unit = { 
+			division = "name = \"Independence Division\" division_template = \"Independence Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95" owner = var:siberian_nationalist_country count = 1
+		}
+	}
+	# Renaming of cities where apropriate 
+	if = {
+		limit = { var:siberian_nationalist_country = { tag = KYR }}
+		set_province_name = {
+			id = 12583
+			name = SOV_Bishkek
+		}
+	}
+}
+change_puppet_economy_idea = {
+	if = {
+		limit = { OVERLORD = { has_idea = war_economy } }
+		add_ideas = war_economy
+	}
+}
+change_state_controller = {
+	if = {
+		limit = {
+			CONTROLLER = {
+				NOT = { tag = ROOT }
+			}
+		}
+		ROOT = {
+			set_state_controller = PREV
+		}
+	}
+}
+liberate_dennmark = {
+	DEN = {
+		drop_cosmetic_tag = yes
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		remove_ideas = GER_DEN_occupied
+		set_country_flag = DEN_free
+
+		hidden_effect = {
+			add_popularity = { ideology = democratic popularity = 1 }
+			add_popularity = { ideology = neutrality popularity = -1 }
+			add_popularity = { ideology = fascism popularity = -1 }
+			transfer_state = 101
+			transfer_state = 337
+			delete_unit = { state = 37 }
+			delete_unit = { state = 99 }
+			USA = { set_state_controller = 101 }
+			ENG = { set_state_controller = 337 }
+		}
+		add_ai_strategy = {
+			type = befriend
+			id = GER
+			value = -200
+		}
+		add_ai_strategy = {
+			type = support
+			id = ENG
+			value = 200
+		}
+	}
+}
+germany_takes_over_italy = {
+	every_country = {
+		limit = {
+			is_subject_of = RSI
+		}
+		GER = { puppet = PREV }
+	}
+	if = {
+		limit = {
+			RSI = { is_subject = no }
+		}
+		set_autonomy = { 
+			target = RSI 
+			autonomy_state = autonomy_satellite 
+			end_wars = no
+			end_civil_wars = no
+		}
+		RSI = {
+			set_cosmetic_tag = ITA_rsi
+			ITA_remove_king_vittorio_emanuele_as_idea = yes
+		}
+	}
+	
+	RSI = {
+	#	every_owned_state = {
+	#		limit = {
+	#			is_on_continent = europe
+	#			NOT = { is_core_of = ITA }
+	#			NOT = { state = 163 }
+	#		}
+	#		GER = { transfer_state = PREV }
+	#	}
+	#	every_controlled_state = {
+	#		limit = {
+	#			is_on_continent = europe
+	#			NOT = { is_core_of = ITA }
+	#		}
+	#		GER = { set_state_controller = PREV }
+	#	}
+
+		add_state_core = 1
+		add_state_core = 116
+		add_state_core = 735
+		add_state_core = 163
+		add_state_core = 103
+		add_state_core = 182
+		add_state_core = 164
+		
+		set_autonomy = {
+		    target = AOI
+		    autonomy_state = autonomy_puppet
+		    end_wars = no
+		    end_civil_wars = no
+		}
+	}
+}
+break_up_the_soviet_union = {
+	# Cut / moved
+}

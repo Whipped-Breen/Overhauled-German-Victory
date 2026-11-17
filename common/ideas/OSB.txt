@@ -1,0 +1,216 @@
+ideas = {
+	country = {
+		OSB_collaborators = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = HUN_secret_rearmament
+			
+			modifier = {
+				army_org_factor = 0.25
+				conscription_factor = 0.05
+			}
+		}
+		OSB_waffen_ss_volunteers = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = german_advisors
+			
+			modifier = {
+				training_time_army_factor = -0.2
+				experience_gain_army_factor = 0.1
+			}
+		}
+		OSB_germaniation = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = generic_fascist_workers
+			
+			modifier = {
+				conscription_factor = 0.25
+			}
+		}
+		OSB_complete_SS_state = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = german_advisors
+			
+			modifier = {
+				training_time_army_factor = -0.2
+				experience_gain_army_factor = 0.15
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+			}
+		}
+		OSB_cast_system_idea = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = generic_purge
+			
+			modifier = {
+				war_support_weekly_factor = 0.5
+				weekly_manpower = 0.05
+				global_building_slots_factor = 0.2
+				foreign_subversive_activites = -0.5
+				army_org_factor = 0.25
+			}
+		}
+		OSB_kriegsmarine = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = FRA_army_of_aggression_focus
+
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.06 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.06 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.06 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.06 instant = yes
+				}	
+				ship_hull_submarine = {
+					build_cost_ic = -0.06 instant = yes
+				}
+			}
+		}
+		OSB_guns_and_equipment = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+			
+			modifier = {
+				army_org_factor = 0.1
+			}
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				artillery = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+			}
+		}
+		OSB_luftwaffe = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = air_war_plans_division_focus
+			
+			equipment_bonus = {
+				fighter_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_fighter_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				jet_fighter_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_CAS_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				CAS_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				rocket_interceptor_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				tac_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				jet_tac_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				jet_strat_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				heavy_fighter_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				strat_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				guided_missile_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+
+			modifier = {
+				air_superiority_efficiency = 0.1
+			}
+		}
+		OSB_germanic_imagrants = {
+		
+			allowed_civil_war = {
+				has_government = fascism
+			}
+		
+			removal_cost = -1
+
+			picture = triumphant_will
+			
+			modifier = {
+				monthly_population = 0.2
+				research_speed_factor = 0.1
+			}
+		}
+	}
+}

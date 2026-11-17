@@ -1,0 +1,443 @@
+characters={
+	MAF_franz_ritter_von_epp={
+		name="Franz Ritter von Epp"
+		portraits={
+			civilian={
+				large="gfx/leaders/Portrait_Germany_Franz_Ritter_von_Epp.dds"
+			}
+		}
+		field_marshal={
+			traits={ old_guard politically_connected war_hero jungle_rat }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=3784
+		}
+		country_leader={
+			desc="POLITICS_FRANZ_RITTER_VON_EPP_DESC"
+			ideology=nazism
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			desc="POLITICS_FRANZ_RITTER_VON_EPP_DESC"
+			ideology=despotism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	MAF_ar={
+		advisor={
+			slot = high_command
+			idea_token = MAF_ar
+			ledger  = army 
+				allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					army_regrouping_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	MAF_acr={
+		advisor={
+			slot = air_chief
+			idea_token = MAF_acr
+			allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					air_chief_reform_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	MAF_mt={
+		advisor={
+			slot = theorist
+			idea_token = MAF_mt
+			ledger  = army 
+				allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					military_theorist 
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	MAF_stc={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_stc
+			allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					smooth_talking_charmer 
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_3"
+			}
+		}
+	}
+	MAF_aa2={
+		advisor={
+			slot = high_command
+			idea_token = MAF_aa2
+			ledger  = army 
+				allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					army_armored_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	MAF_acgs={
+		advisor={
+			slot = air_chief
+			idea_token = MAF_acgs
+			allowed  = {
+					original_tag  = MAF
+				}
+				traits  = {
+					air_chief_ground_support_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	MAF_ncm={
+		advisor={
+			slot = navy_chief
+			idea_token = MAF_ncm
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				navy_chief_maneuver_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_3"
+			}
+		}
+	}
+	MAF_nccr={
+		advisor={
+			slot = navy_chief
+			idea_token = MAF_nccr
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				navy_chief_commerce_raiding_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_2"
+			}
+		}
+	}
+	MAF_coi={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_coi
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				captain_of_industry 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_1"
+			}
+		}
+	}
+	MAF_democratic_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_democratic_guy
+			allowed  = {
+				original_tag  = MAF
+			}
+			available = {
+				has_government = democratic 
+			}
+			traits  = {
+				democratic_reformer 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = democratic 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_1"
+			}
+		}
+	}
+	MAF_acd2={
+		advisor={
+			slot = army_chief
+			idea_token = MAF_acd2
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				army_chief_defensive_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_1"
+			}
+		}
+	}
+	MAF_acas={
+		advisor={
+			slot = high_command
+			idea_token = MAF_acas
+			ledger  = air 
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				air_close_air_support_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	MAF_communist_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_communist_guy
+			allowed  = {
+				original_tag  = MAF
+			}
+			available = {
+				has_government = communism 
+			}
+			traits  = {
+				communist_revolutionary 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_3"
+			}
+		}
+	}
+	MAF_ncs={
+		advisor={
+			slot = high_command
+			idea_token = MAF_ncs
+			ledger  = navy 
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				navy_capital_ship_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_2"
+			}
+		}
+	}
+	MAF_awt={
+		advisor={
+			slot = theorist
+			idea_token = MAF_awt
+			ledger  = air 
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				air_warfare_theorist 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+	MAF_pot={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_pot
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				prince_of_terror 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_3"
+			}
+		}
+	}
+	MAF_fascist_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = MAF_fascist_guy
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				fascist_demagogue 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = fascism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	MAF_ai2={
+		advisor={
+			slot = high_command
+			idea_token = MAF_ai2
+			ledger  = army 
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				army_infantry_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_3"
+			}
+		}
+	}
+	MAF_nt={
+		advisor={
+			slot = theorist
+			idea_token = MAF_nt
+			ledger  = navy 
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				naval_theorist 
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_navy_3"
+			}
+		}
+	}
+	MAF_aco2={
+		advisor={
+			slot = army_chief
+			idea_token = MAF_aco2
+			allowed  = {
+				original_tag  = MAF
+			}
+			traits  = {
+				army_chief_organizational_2 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+		portraits={
+			army={
+				small="GFX_idea_GER_generic_land_2"
+			}
+		}
+	}
+}

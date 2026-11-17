@@ -1,0 +1,296 @@
+debug_decisions = {
+#    GER_DEBUG_prepare_sov = {
+#
+#		available = {
+#			NOT = { has_global_flag = collapse_of_ussr }
+#		}
+#
+#		visible = {
+#			original_tag = GER
+#            		has_government = fascism
+#		}
+#		
+#		complete_effect = {
+#			SOV = {
+#				country_event = OGV_soviet.1
+#			}
+#		}
+#
+#		ai_will_do = {
+#			base = 0
+#		}
+#	}
+
+    GER_DEBUG_get_reichskommissariats = {
+
+		available = {
+			NOT = { has_completed_focus = GER_form_the_reichskommissariats }
+		}
+
+		visible = {
+			original_tag = GER
+            		has_government = fascism
+		}
+		
+		complete_effect = {
+			complete_national_focus = GER_form_the_reichskommissariats
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+    GER_DEBUG_balkans_ally = {
+
+		available = {
+			NOT = {
+                has_completed_focus = GER_align_romania
+                has_completed_focus = GER_align_hungary
+                is_in_faction_with = HUN
+                is_in_faction_with = ROM
+            }
+		}
+
+		visible = {
+			original_tag = GER
+            		has_government = fascism
+		}
+		
+		complete_effect = {
+			complete_national_focus = GER_align_romania
+			complete_national_focus = GER_align_hungary
+            add_to_faction = HUN
+            add_to_faction = ROM
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+    
+    GER_DEBUG_invasion_goals = {
+
+		available = {
+			OR = {
+                NOT = { has_completed_focus = GER_ussr_war_goal }
+                NOT = { has_completed_focus = GER_danzig_or_war }
+                NOT = { has_completed_focus = GER_around_maginot }
+                NOT = { has_completed_focus = GER_war_with_france }
+                NOT = { has_completed_focus = GER_operation_tannenbaum }
+                NOT = { has_completed_focus = GER_weserubung }
+                NOT = { has_completed_focus = GER_demand_slovenia }
+            }
+		}
+
+		visible = {
+			original_tag = GER
+            		has_government = fascism
+		}
+		
+		complete_effect = {
+			complete_national_focus = GER_ussr_war_goal
+            complete_national_focus = GER_danzig_or_war
+            complete_national_focus = GER_around_maginot
+            complete_national_focus = GER_war_with_france
+            complete_national_focus = GER_operation_tannenbaum
+            complete_national_focus = GER_weserubung
+            complete_national_focus = GER_demand_slovenia
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+    GER_DEBUG_invade_yugoslavia = {
+
+		available = {
+			NOT = {
+                has_completed_focus = GER_demand_slovenia
+                has_completed_focus = GER_first_ljubljana_award
+                has_completed_focus = GER_fate_of_yugoslavia
+            }
+		}
+
+		visible = {
+			original_tag = GER
+            		has_government = fascism
+		}
+		
+		complete_effect = {
+			complete_national_focus = GER_demand_slovenia
+            complete_national_focus = GER_first_ljubljana_award
+            complete_national_focus = GER_fate_of_yugoslavia
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+    GER_DEBUG_conquer = {
+
+		available = {
+			
+		}
+
+		visible = {
+			original_tag = GER
+            		has_government = fascism
+		}
+		
+		complete_effect = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = NOR
+                        tag = SWE
+                        tag = DEN
+                        tag = HOL
+                        tag = BEL
+                        tag = LUX
+                        tag = FRA
+                        tag = POL
+                        tag = YUG
+                    }
+                }
+                GER = {
+                    declare_war_on = {
+                        target = PREV
+                        type = annex_everything
+                    }
+                }
+                every_state = {
+                    limit = {
+                        is_owned_and_controlled_by = PREV
+                        is_in_home_area = yes
+                    }
+                    GER = { set_state_controller = PREV }
+                    owner = {
+                        delete_unit = { state = PREV }
+                    }
+                }
+                if = {
+                    limit = { tag = DEN }
+                    country_event = { id = wtt_denmark.1 days = 1 }
+                }
+            }
+			declare_war_on = {
+                target = ENG
+                type = annex_everything
+            }
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+    GER_DEBUG_war_sov = {
+
+		available = {
+			
+		}
+
+		visible = {
+			original_tag = GER
+            has_government = fascism
+		}
+		
+		complete_effect = {
+            declare_war_on = { target = SOV type = annex_everything }
+			
+			SOV = {
+				annex_country = { target = LIT }
+				annex_country = { target = LAT }
+				annex_country = { target = EST }
+
+				every_state = {
+					limit = {
+						is_claimed_by = SOV
+						OR = {
+							is_owned_by = POL
+							is_owned_by = ROM
+						}
+					}
+					transfer_state_to = SOV
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	GER_DEBUG_war_Axis = {
+
+		available = {
+			has_war_with = ENG
+		}
+
+		visible = {
+			original_tag = GER
+            has_government = fascism
+		}
+		
+		complete_effect = {
+            every_other_country = {
+				limit = { is_in_faction_with = ROOT }
+				add_to_war = { 
+					targeted_alliance = GER 
+					enemy = ENG 
+					hostility_reason = asked_to_join 
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+    GER_DEBUG_YUG_release_CRO = {
+
+		available = {
+			NOT = { has_completed_focus = YUG_united_autonomous_croatia }
+		}
+
+		visible = {
+			original_tag = GER
+            has_government = fascism
+		}
+		
+		complete_effect = {
+           YUG = {
+                complete_national_focus = YUG_united_autonomous_croatia
+            }
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+    GER_DEBUG_YUG_release_CRO_2 = {
+
+		available = {
+			NOT = { has_completed_focus = YUG_devolved_croatia }
+		}
+
+		visible = {
+			original_tag = GER
+            has_government = fascism
+		}
+		
+		complete_effect = {
+           YUG = {
+                complete_national_focus = YUG_devolved_croatia
+            }
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+}

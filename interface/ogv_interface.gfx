@@ -1,0 +1,37 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_news_event_ogv_soviet_collapse"
+		texturefile = "gfx/event_pictures/news_event_ogv_soviet_collapse.dds"
+	}
+
+	spriteType = {
+		name = "GFX_GER_persia_puppet"
+		texturefile = "gfx/interface/goals/GER_persia_puppet.dds"
+	}
+
+	spriteType = {
+		name = "GFX_OSB_goal"
+		texturefile = "gfx/interface/goals/OSB_goal.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ger_foreign_state"
+		texturefile = "gfx/interface/decisions/decision_oppression.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ger_lebensraum_state"
+		texturefile = "gfx/interface/decisions/decision_category_eng_move_to_secure_the_dominions.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ger_protectorate_of_bohemia_and_moravia"
+		texturefile = "gfx/flags/medium/CZE_protectorate_of_bohemia_and_moravia.tga"
+	}
+
+	spriteType = {
+		name = "GFX_ger_generalgouvernement"
+		texturefile = "gfx/flags/medium/GER_fascism.tga"
+	}
+}

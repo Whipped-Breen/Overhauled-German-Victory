@@ -1,0 +1,206 @@
+on_actions = {
+	# country 
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = GER
+					has_government = fascism
+				}
+				random_other_country = {
+					limit = {
+						tag = DEN
+						has_idea = GER_DEN_occupied
+					}
+					liberate_dennmark = yes
+				}
+				every_country = {
+					limit = {
+						OR = {
+							has_cosmetic_tag = NOR_reichskommissariat
+							has_cosmetic_tag = SWE_reichskommissariat
+							has_cosmetic_tag = DEN_reichskommissariat
+							has_cosmetic_tag = HOL_reichskommissariat
+							has_cosmetic_tag = BEL_reichskommissariat
+						}
+					}
+					if = {
+						limit = {
+							is_dynamic_country = yes
+						}
+						GER = { annex_country = { target = PREV } }
+					}
+					else = {
+						drop_cosmetic_tag = yes
+						kill_ideology_leader = fascism
+					}
+				}
+				random_other_country = {
+					limit = { has_cosmetic_tag = SER_reichskommissariat }
+					if = {
+						limit = {
+							country_exists = YUG
+						}
+						YUG = { annex_country = { target = SER } }
+						SER = {
+							drop_cosmetic_tag = yes
+							set_politics = { ruling_party = neutrality elections_allowed = yes }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = DEN
+						is_faction_leader = no
+						is_in_faction = no
+					}
+					FROM = {
+						tag = GER
+						has_government = fascism
+					}
+				}
+				GER = { country_event = germany_plus.4 }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = YUG
+						is_faction_leader = no
+						is_in_faction = yes
+					}
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+					GER = {
+						has_government = fascism
+						has_war_with = YUG
+					}
+				}
+				GER = { country_event = germany_plus.13 }
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = irish_reich }
+					ROOT = {
+						tag = IRE
+					}
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+					GER = { has_government = fascism }
+				}
+				GER = { country_event = OGV_britain.3 }
+			}
+			if = {
+				limit = { tag = ENG has_country_flag = OGV_britain_1_flag }
+				CAN = { 
+					ENG = { 
+						become_exiled_in = { target = PREV legitimacy = 80 } 
+						clr_country_flag = OGV_britain_1_flag 
+						set_faction_leader = yes
+					} 
+				}
+			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			if = {
+				limit = {
+					date > 1939.1.1
+				}
+				69 = { add_core_of = GER }
+				74 = { add_core_of = GER }
+				188 = { add_core_of = GER }
+				9 = { add_dynamic_modifier = { modifier = GER_protectorate_of_bohemia_and_moravia scope = GER } }
+				75 = { add_dynamic_modifier = { modifier = GER_protectorate_of_bohemia_and_moravia scope = GER } }
+			}
+		}
+	}
+	
+	#ROOT = country that joined a war
+	#Fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first
+	on_war = { 
+		effect = {
+			if = {
+				limit = {
+					tag = ITA
+					has_government = fascism
+					has_civil_war = yes
+				}
+				GER = { country_event = germany_plus.3 }
+			}
+		}
+	}
+	
+	#ROOT is winner #FROM gets annexed - This will also fire on_annex
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc = "La Resistance" }
+					FROM = { original_tag = FRA }
+					ROOT = {
+						original_tag = FRA
+						has_country_flag = vichy_france
+					}
+				}
+				country_event = OGV_france.1
+			}
+		}
+	}
+
+	on_release_as_free = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					country_exists = RSB
+					SOV = { has_government = RSB }
+				}
+				SOV = { annex_country = { target = RSB transfer_troops = yes } }
+				RSB = {
+					every_unit_leader = {
+						set_nationality = SOV
+					}
+				}
+			}
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = { state = 29 }
+					FROM = { has_cosmetic_tag = BEL_reichskommissariat }
+					ROOT = { original_tag = FRA has_government = fascism }
+				}
+				RKB = { transfer_state = 29 }
+			}
+			if = {
+				limit = {
+					FROM.FROM = { state = 330 }
+					FROM = { tag = MEN }
+					ROOT = { tag = MAN }
+				}
+				every_state = {
+					limit = { is_core_of = MEN OR = { is_core_of = MON state = 329 } }
+					MAN = { add_state_core = PREV }
+					MEN = { remove_state_core = PREV }
+				}
+			}
+		}
+	}
+}
